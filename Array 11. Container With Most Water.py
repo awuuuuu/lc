@@ -38,3 +38,17 @@ class Solution:
                 r = r - 1
 
         return res
+
+    #慢速版本，min的比较可以和if else 结合
+    class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        res = 0
+        l = 0
+        r = len(height) - 1
+        while l < r:
+            res = max(res, min(height[l], height[r]) * (r-l))
+            if height[l] < height[r]:
+                l = l + 1
+            else:
+                r = r - 1
+        return res
