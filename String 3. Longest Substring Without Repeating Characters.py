@@ -30,3 +30,26 @@ class Solution(object):
         else:
         	max_len = max(max_len, j-i)
         return max_len  
+
+    
+    class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if len(s) < 2:
+        	return len(s)
+        m = {}
+        #如果有更新，i设为index即可，要是未更新，i=-1，在这里纠结很久
+        i = -1
+        j = 0
+        max_len = 1
+        while j < len(s):
+            if s[j] in m and m[s[j]] > i:
+                i = m[s[j]]
+            m[s[j]] = j
+            max_len = max(max_len, j-i)
+            j = j + 1
+  
+        return max_len  
