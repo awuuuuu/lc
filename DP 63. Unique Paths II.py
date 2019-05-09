@@ -1,4 +1,5 @@
 #数组永远有index设置和index的边界问题
+#没时间不用重做
 
 class Solution:
     def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
