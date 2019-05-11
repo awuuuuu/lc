@@ -41,3 +41,30 @@ class Solution(object):
                         t = i
         return head.next
         
+#貌似这个慢。。
+        
+ class Solution(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+        if len(lists) == 0:
+            return None
+        if (len(lists)) == 1:
+            return lists[0]
+        from Queue import PriorityQueue as PQ
+        q = PQ()
+        for i in lists:
+            if i:
+                q.put((i.val, i))
+        head = ListNode(0)
+        cur = head
+        while q.qsize() > 0:
+            t = q.get()[1]
+            cur.next = t
+            if t.next:
+                q.put((t.next.val, t.next))
+            cur = cur.next
+        return head.next
+        
